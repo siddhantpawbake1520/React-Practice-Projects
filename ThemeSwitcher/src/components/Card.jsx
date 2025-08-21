@@ -19,12 +19,13 @@ export default function Card() {
         </a>
 
         <div className="flex items-center mt-2.5 mb-5">
-          {/* Stars */}
-          {[...Array(4)].map((_, i) => (
-            <svg
-              key={i}
-              className="w-4 h-4 text-yellow-300 mr-1"
-              aria-hidden="true"
+          {Array(5)
+            .fill(0)
+            .map((_, i) => (
+              <svg
+                key={i}
+                className={`w-4 h-4 ${i < 4 ? "text-yellow-300" : "text-gray-200 dark:text-gray-600"} mr-1`}
+                aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               fill="currentColor"
               viewBox="0 0 22 20"
