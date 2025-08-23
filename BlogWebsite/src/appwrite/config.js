@@ -1,4 +1,4 @@
-import conf from './auth'
+import conf from '../conf/conf.js'
 import { Client, ID,databases,storage,query, Query } from 'appwrite'
 
 export class service{

@@ -35,8 +35,9 @@ export class AuthService{
             return await this.account.get();
         }catch(error){
             throw(error);
+            return false
         }
-        return null;
+        
     }
     async logout(){
         try{
@@ -47,6 +48,7 @@ export class AuthService{
     }
 }
 
-const AuthService=new AuthService();
 
-export default AuthService
+const authService = new AuthService();
+
+export default authService
