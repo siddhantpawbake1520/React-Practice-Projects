@@ -33,36 +33,44 @@ export default function Post() {
 
     return post ? (
         <div className="py-8">
-            <Container>
-                <div className="w-full flex justify-center mb-4 relative border rounded-xl p-2">
-                    {(post.FeaturedImg || post.featuredImage) ? (
-                        <img
-                            src={appwriteService.getFilePreview(post.FeaturedImg || post.featuredImage)}
-                            alt={post.title}
-                            className="rounded-xl"
-                        />
-                    ) : (
-                        <div className="rounded-xl bg-gray-300 h-32 flex items-center justify-center">No Image</div>
-                    )}
+  <Container>
+    <div className="w-full max-w-3xl mx-auto"> {/* keeps content centered */}
+      
+      {/* Image section */}
+      <div className="relative mb-6">
+        {(post.FeaturedImg || post.featuredImage) ? (
+          <img
+            src={appwriteService.getFilePreview(post.FeaturedImg || post.featuredImage)}
+            alt={post.title}
+            className="w-full max-h-[500px] object-cover rounded-xl shadow"
+          />
+        ) : (
+          <div className="w-full h-60 rounded-xl bg-gray-300 flex items-center justify-center text-gray-600">
+            No Image
+          </div>
+        )}
 
-                    {isAuthor && (
-                        <div className="absolute right-6 top-6">
-                            <Link to={`/edit-post/${post.$id}`}>
-                                <Button bgColor="bg-green-500" className="mr-3">
-                                    Edit
-                                </Button>
-                            </Link>
-                            <Button bgColor="bg-red-500" onClick={deletePost}>
-                                Delete
-                            </Button>
-                        </div>
-                    )}
-                </div>
-                <div className="w-full mb-6">
-                    <h1 className="text-2xl font-bold">{post.title}</h1>
-                </div>
-                <div className="browser-css">{parse(post.content)}</div>
-            </Container>
-        </div>
+        {/* Edit/Delete buttons for author */}
+        {isAuthor && (
+          <div className="absolute right-4 top-4 flex gap-2">
+            <Link to={`/edit-post/${post.$id}`}>
+              <Button bgColor="bg-green-500">Edit</Button>
+            </Link>
+            <Button bgColor="bg-red-500" onClick={deletePost}>
+              Delete
+            </Button>
+          </div>
+        )}
+      </div>
+
+      {/* Title */}
+      <h1 className="text-3xl font-bold mb-4">{post.title}</h1>
+
+      {/* Content */}
+      <div className="prose max-w-none">{parse(post.content)}</div>
+    </div>
+  </Container>
+</div>
+
     ) : null;
 }

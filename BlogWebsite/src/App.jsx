@@ -37,17 +37,16 @@ function App() {
     );
   }
 
-  return (
-    <div className="min-h-screen flex flex-wrap content-between bg-gray-400">
-      <div className="w-full block">
-        <Header />
-        <main>
-          <Outlet />
-        </main>
-        <Footer />
-      </div>
-    </div>
-  );
+return (
+  <div className="min-h-screen flex flex-col justify-between bg-gray-400">
+    <Header />
+    <main className="flex-grow">
+      <Outlet />
+    </main>
+    <Footer />
+  </div>
+);
+
 }
 
 export default App;

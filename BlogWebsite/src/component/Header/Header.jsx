@@ -40,12 +40,12 @@ console.log("Auth status:", authStatus)
 
 
   return (
-    <header className='py-3 shadow bg-gray-500'>
+    <header className="h-14 flex items-center justify-between bg-gray-900 text-white px-4">
       <Container>
         <nav className='flex'>
-          <div className='mr-4'>
+          <div className='mr-2'>
             <Link to='/'>
-              <Logo width='70px'   />
+              <Logo width='0px'   />
 
               </Link>
           </div>
